@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;0,900;1,800&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border : solid white;
+    padding : 50px;
+    border-radius:15px;
+    margin-top:200px;
+
+    
+}
+
+.time {
+    font-size: 40px;
+    color: white; 
+
+}
+
+.text {
+    color: white;
+
+}
+
+.heading {
+    font-size: 70px;
+    
+}
+
+.heading-2{
+    font-size:20px;
+}
