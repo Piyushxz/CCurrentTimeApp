@@ -2,7 +2,8 @@ import {  createContext,useContext,useReducer } from "react";
 import { todoReducer } from "../reducer/todo-reducer";
 
 const initialValue = {
-    isTodoModalOpen :false
+    isTodoModalOpen :false,
+    todos:[]
 }
 
 const TodoContext = createContext(initialValue)
@@ -10,10 +11,10 @@ const TodoContext = createContext(initialValue)
 
 const TodoProvider = ({children}) =>{
 
-    const [{isTodoModalOpen},todoDispatch] = useReducer(todoReducer,initialValue)
+    const [{isTodoModalOpen,todos},todoDispatch] = useReducer(todoReducer,initialValue)
 
     return(
-        <TodoContext.Provider value={{isTodoModalOpen,todoDispatch}}>
+        <TodoContext.Provider value={{isTodoModalOpen,todos,todoDispatch}}>
             {children}
         </TodoContext.Provider>
     )

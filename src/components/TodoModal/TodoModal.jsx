@@ -1,12 +1,26 @@
 import "./TodoModal.css"
 import { useTodos } from "../../context/todo-context"
+import { useState } from "react"
 const TodoModal = ( ) =>{
-    const {todoDispatch} = useTodos()
+    const {todoDispatch,todos} = useTodos()
+    const [todo,setTodo] = useState("")
+    console.log(todos);
     const handleTodoClose = () =>{
         todoDispatch({
             type :"OPEN_TODO_MODAL"
         })
     }
+    const onInputChange = (e) =>{
+        setTodo(e.target.value);
+    }
+
+    const onAddTodo = () =>{
+        todoDispatch({
+            type:"ADD_TODO",
+            payload:todo
+        })
+    }
+
     return(
         <>
         <div className="modal-container">
@@ -25,8 +39,26 @@ const TodoModal = ( ) =>{
 
                  </div>
                  <div className="inp-container">
-                    <input className="inp" type="text"/>
-                    <button className="btn">Add</button>
+                    <input onChange={onInputChange}className="inp" type="text"/>
+                    <button onClick={onAddTodo}className="btn">Add</button>
+                </div>
+
+                <div className="todo-container">
+                    {
+                        todos.map(({id,todo}) =>{
+                            return(
+                                <div className="todo">
+                                <h4 className="todo-txt"key={id}>{todo}</h4>
+                                <span  className="del material-symbols-outlined">
+                                    delete
+                                </span>
+                                </div>
+   
+                            )
+                        }
+
+                    )
+                    }
                 </div>
             </div>
 
