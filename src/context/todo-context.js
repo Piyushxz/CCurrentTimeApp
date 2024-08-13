@@ -13,7 +13,7 @@ const TodoProvider = ({children}) =>{
     const [{isTodoModalOpen},todoDispatch] = useReducer(todoReducer,initialValue)
 
     return(
-        <TodoContext.Provider>
+        <TodoContext.Provider value={{isTodoModalOpen,todoDispatch}}>
             {children}
         </TodoContext.Provider>
     )
