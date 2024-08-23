@@ -32,9 +32,9 @@ const Time = () => {
         <div className="container">
             <div>
             {
-                time < 12 ? <h1 className="text heading">Good Morning.</h1> :
-                time < 17 ? <h1 className="text heading">Good Afternoon.</h1> :
-                <h1 className="text heading">Good Evening.</h1>
+                time < 12 ? <h1 className="text heading morning">Good Morning.</h1> :
+                time < 17 ? <h1 className="text heading afternoon">Good Afternoon.</h1> :
+                <h1 className="text heading evening">Good Evening.</h1>
             }
             </div>
             

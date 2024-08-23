@@ -12,6 +12,7 @@ const TodoModal = ( ) =>{
     }
     const onInputChange = (e) =>{
         setTodo(e.target.value);
+        
     }
 
     const onAddTodo = () =>{
@@ -19,7 +20,17 @@ const TodoModal = ( ) =>{
             type:"ADD_TODO",
             payload:todo
         })
+        setTodo("")
     }
+
+    const handleDeleteTodo = (id) =>{
+        todoDispatch({
+            type:"DELETE_TODO",
+            payload:id
+        })
+       
+    }
+
 
     return(
         <>
@@ -39,7 +50,7 @@ const TodoModal = ( ) =>{
 
                  </div>
                  <div className="inp-container">
-                    <input onChange={onInputChange}className="inp" type="text"/>
+                    <input value={todo}onChange={onInputChange}className="inp" type="text"/>
                     <button onClick={onAddTodo}className="btn">Add</button>
                 </div>
 
@@ -47,9 +58,9 @@ const TodoModal = ( ) =>{
                     {
                         todos.map(({id,todo}) =>{
                             return(
-                                <div className="todo">
+                                <div className="todo" key={id}>
                                 <h4 className="todo-txt"key={id}>{todo}</h4>
-                                <span  className="del material-symbols-outlined">
+                                <span onClick={()=>handleDeleteTodo(id)} className="del material-symbols-outlined">
                                     delete
                                 </span>
                                 </div>

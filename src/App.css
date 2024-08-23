@@ -6,7 +6,12 @@
 .todo-button{
   display:flex;
   justify-content:center;
-  color:blue;
+  background-color:#87CEEB;
+  color : white;
+  margin-left:700px;
+  border-radius:20px;
+  margin-top:20px;
+
 }
 
 

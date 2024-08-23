@@ -17,7 +17,7 @@ function App() {
   return (
     <>
     <Navbar/>
-    {isTodoModalOpen ? <TodoModal/> : <h1 onClick={handleModalOpen} className='todo-button'>Todos</h1>}
+    {isTodoModalOpen ? <TodoModal/> : <button  className="todo-button"onClick={handleModalOpen}><h1 >Your Todo's</h1></button>}
     <div className="App">
      
      <Time/>
